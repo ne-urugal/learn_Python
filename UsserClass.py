@@ -1,11 +1,8 @@
-class Users:
-    def __init__(self, name, age):
+class PrintingUser:
+    def __init__(self, name=None):
         self.name = name
-        self.age = age
 
-User_1 = Users(input('Enter your name: '), int(input('Enter your age: ')))
-
-def printingUser():
-    return User_1.name
+def __str__(self):
+    return f'User: {self.name}'
 
 

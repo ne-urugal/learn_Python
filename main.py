@@ -1,18 +1,30 @@
-from UsserClass import printingUser
-import method
+#main.py
 
-user_1 = printingUser()
+from UsserClass import PrintingUser
+from method import added_new_day
+from method import added_new_note
 
-weak = {1: 'monday', 2: 'tuesday', 3: 'wednesday'}
+WEEK = {
+    'monday': 'Monday',
+    'tuesday': 'Tuesday',
+    'wednesday': 'Wednesday',
+    'thursday': 'Thursday',
+    'friday': 'Friday',
+    'saturday': 'Saturday',
+    'sunday': 'Sunday',
+}
 
-new_notes = method.added_new_note(
-    list(input('Enter the notes: ').split(', '))
-    )
+user = PrintingUser(input('Enter the name of the user: '))
 
-new_day = method.added_new_day(
-    str.lower((input('Enter the day: ')))
-)
+print(f"Hi, {user.name}!")
+
+notes = added_new_note()
+
+day = added_new_day()
 
 
-if new_day == weak[1]:
-    print(f'User: {user_1}. {new_day}: {new_notes}')
+if day in WEEK:
+    print(f'\nUser: {user.name}')
+    print(f'{WEEK[day]}: {notes}')
+else:
+    print('Ti dolboyob!')
