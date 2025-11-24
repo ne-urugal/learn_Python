@@ -1,6 +1,6 @@
 #main.py
 
-from UsserClass import PrintingUser
+from user import PrintingUser
 from method import added_new_day
 from method import added_new_note
 
