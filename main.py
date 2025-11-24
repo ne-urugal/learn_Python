@@ -1,30 +1,21 @@
 #main.py
+from tasks import added_tasks
 
-from user import PrintingUser
-from method import added_new_day
-from method import added_new_note
+def main():
+    task_name = input('Enter task name: ')
+    task_desk = input('Enter task deskription: ')
 
-WEEK = {
-    ('monday', ): 'Monday',
-    ('tuesday', ): 'Tuesday',
-    ('wednesday', ): 'Wednesday',
-    ('thursday', ): 'Thursday',
-    ('friday', ): 'Friday',
-    ('saturday', ): 'Saturday',
-    ('sunday', ): 'Sunday',
-}
+    days = input('Enter task days: ').split(',')
+    days = [d.strip() for d in days]
 
-user = PrintingUser(input('Enter the name of the user: '))
+    priority = input('Enter task priority (low, medium, high): ').upper()
 
-print(f"Hi, {user.name}!")
+    added_tasks(task_name, task_desk, days, priority)
 
-notes = added_new_note()
+    return (f'{task_name}'
+            f'\n{task_desk}!'
+            f'\n{days}'
+            f'\n{priority}')
 
-day = added_new_day()
-
-
-if day in WEEK:
-    print(f'\nUser: {user.name}')
-    print(f'{WEEK[day]}: {notes}')
-else:
-    print('None!')
+if __name__ == '__main__':
+    main()
