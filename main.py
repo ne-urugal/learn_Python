@@ -3,12 +3,12 @@ from tasks import added_tasks
 
 def main():
     task_name = input('Enter task name: ')
-    task_desk = input('Enter task deskription: ')
+    task_desk = input('Enter task description: ')
 
     days = input('Enter task days: ').split(',')
     days = [d.strip() for d in days]
 
-    priority = input('Enter task priority (low, medium, high): ').upper()
+    priority = input('Enter task priority (low, medium, high): ')
 
     added_tasks(task_name, task_desk, days, priority)
 
