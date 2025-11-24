@@ -1,4 +1,5 @@
 #main.py
+
 from tasks import added_tasks
 
 def main():
@@ -16,6 +17,7 @@ def main():
             f'\n{task_desk}!'
             f'\n{days}'
             f'\n{priority}')
+
 
 if __name__ == '__main__':
     main()
