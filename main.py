@@ -1,7 +1,6 @@
 #main.py
 
 from tasks import enter_task
-import json
 
 def main(*args):
     enter_task()
