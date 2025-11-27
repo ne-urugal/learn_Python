@@ -30,7 +30,7 @@ def write_task_to_file(name, desk, days, priority):
         task_dict = {
                 'name': name,
                 'desk': desk,
-                'repeat_on': ', '.join(days),
+                'repeat_on': days,
                 'priority': priority,
                 'created_at': datetime.now().isoformat()
                 }
