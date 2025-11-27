@@ -28,11 +28,11 @@ def print_task(name, desc, days, priority):
 def write_task_to_file(name, desk, days, priority):
     try:
         task_dict = {
-                'name': f'{name}.',
-                'desk': f'{desk}.',
-                'repeat_on': f'{', '.join(days)}.',
-                'priority': f'{priority}',
-                'created_at': f'{datetime.now().isoformat()}'
+                'name': name,
+                'desk': desk,
+                'repeat_on': ', '.join(days),
+                'priority': priority,
+                'created_at': datetime.now().isoformat()
                 }
         with open('db.json', 'w', encoding='utf-8') as file:
             json.dumps(task_dict, indent=4)
