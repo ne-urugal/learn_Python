@@ -10,20 +10,29 @@ def enter_task():
     days = input('Enter task days: ').split(',')
     days = [d.strip() for d in days]
 
-    priority = input('Enter task priority (low, medium, high): ')
+    priority = input('Enter task priority (low, medium, high): ').upper()
+
+    added_tasks(task_name, task_desk, days, priority)
 
     return write_task_to_file(task_name, task_desk, days, priority)
 
+
+def added_tasks(name, desc, days, priority):
+    return print(f'You added new task - {name}. Created time: {datetime.now().isoformat()}\n'
+                 f'Description: {desc}.\n'
+                 f'Repeat the task by: {', '.join(days)}.\n'
+                 f'Priority: {priority if priority == 'HIGH' else priority.lower()}!'
+                 )
 
 
 def write_task_to_file(name, desk, days, priority):
     try:
         task_dict = {
-                'name': f'You added new task - {name}.',
-                'desk': f'Description: {desk}.',
-                'days': f'Repeat the task by: {', '.join(days)}.',
-                'priority': f'Priority: {priority.upper() if priority == 'HIGH' else priority.lower()}!',
-                'time': f'Add time: {datetime.now().strftime("%m/%d/%Y %I:%M:%S %p")}'
+                'name': f'{name}.',
+                'desk': f'{desk}.',
+                'repeat_on': f'{', '.join(days)}.',
+                'priority': f'{priority if priority == 'HIGH' else priority.lower()}!',
+                'created_at': f'{datetime.now().isoformat()}'
                 }
         with open('db.json', 'w', encoding='utf-8') as file:
             json.dumps(task_dict, indent=4)
