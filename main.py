@@ -1,9 +1,11 @@
 #main.py
 
-from tasks import enter_task
+from menu import menu_list
 
-def main(*args):
-    enter_task()
+def main():
+    while True:
+        menu_list()
+
 
 
 if __name__ == '__main__':
