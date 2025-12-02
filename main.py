@@ -6,9 +6,7 @@ from os import mkdir, path
 
 
 def main():
-    try:
-        path.isdir('tasks')
-    except:
+    if not path.isdir('tasks'):
         mkdir('tasks')
     while True:
         menu_list()
