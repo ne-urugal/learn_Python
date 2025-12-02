@@ -1,7 +1,7 @@
 #menu.py
 from traceback import print_last
 
-from tasks import enter_task
+from tasks import enter_task, print_task
 from writetask import task_list
 
 
@@ -14,9 +14,11 @@ def menu_list():
               )
         user_choice = input('Select menu item: ')
         if user_choice == '1':
-            print(f'Current tasks: {task_list}\n\n')
-            printed_tasks = enter_task()
-            print(printed_tasks)
+            if task_list == {}:
+                print('\n\nThere are no tasks.\n\n')
+            else:
+                print(f'Current tasks: {task_list}\n\n')
+            print_task()
         elif user_choice == '2':
             enter_task()
         #elif user_choice == '3':

@@ -14,19 +14,18 @@ def enter_task():
 
     write_task_to_file(task_name, task_desc, rep_days, priority_task)
 
-    def print_task(*args):
-        printed = (
-            f'You added new task - {task_name}. Created time: {datetime.now().isoformat()}\n'
-            f'Description: {task_desc}.\n'
-            f'Repeat the task by: {', '.join(rep_days)}.\n'
-            f'Priority: {priority_task if priority_task == 'low' else priority_task.upper()}!'
+    return print_task(task_name, task_desc, rep_days, priority_task)
+
+
+def print_task(name, desc, days, priority):
+    printed = (
+            f'You added new task - {name}. Created time: {datetime.now().isoformat()}\n'
+            f'Description: {desc}.\n'
+            f'Repeat the task by: {', '.join(days)}.\n'
+            f'Priority: {priority if priority == 'low' else priority.upper()}!'
         )
 
-        return printed
-
-    print(print_task())
-
-    return
+    return printed
 
 
 
